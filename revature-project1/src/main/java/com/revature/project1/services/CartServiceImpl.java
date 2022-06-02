@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Author(authorName = "Leo Schaffner",
         description = "Implements methods in CartService interface")
@@ -95,9 +97,21 @@ public class CartServiceImpl implements CartService{
         sessionUser.setCart(c); // Update logged-in user in addition to table
 
         // Decrease stock of items ordered
+        Set<Integer> repeats = new TreeSet<>(); // Contains ids of duplicate items
         for (Item i: temp) {
+            if (repeats.contains(i.getItemId())) break;
+
+            int count = 1;
             if (i.getQoh() == 1) LOGGER.info("Item " + i.getItemId() + " needs to be restocked"); // If last item is purchased
-            i.setQoh(i.getQoh()-1);
+
+            for (int j=temp.indexOf(i)+1; j<temp.size(); j++) { // Checks for duplicates
+                if (i.getItemId() == temp.get(j).getItemId()) {
+                    repeats.add(i.getItemId());
+                    count++;
+                }
+            }
+
+            i.setQoh(i.getQoh()-count); // Decreases stock depending on how many of the item are in cart
             itemService.updateItem(i);
         }
 
