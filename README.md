@@ -21,6 +21,7 @@ Get a Single User - Get a single user and their cart
 Get a Single Item - Get a single item
 Place Order - Transfer cart items to order, Add order to orders table, Empty Cart, Decrease item stock
 Validate Email - Check if email is valid
+Authentication Exceptions - Throw custom exceptions for invalid login, actions performed when not logged in
 
 Technologies:
 Java
@@ -29,3 +30,4 @@ REST
 PostgreSQL
 Postman
 DBeaver
+AWS
