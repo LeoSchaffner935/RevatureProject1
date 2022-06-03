@@ -16,7 +16,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Component
 @Entity
-@Table(name = "users", schema = "revatureproject1")
+@Table(name = "users")
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class User {
     @Id

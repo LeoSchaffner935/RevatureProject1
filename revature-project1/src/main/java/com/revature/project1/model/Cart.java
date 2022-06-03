@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 @Entity
-@Table(name = "carts", schema = "revatureproject1")
+@Table(name = "carts")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -24,7 +24,7 @@ public class Cart {
     private double subtotal; // Subtotal of cart, sum of price of items in cart
 
     @ManyToMany
-    @JoinTable(name = "cartlist",  schema = "revatureproject1",
+    @JoinTable(name = "cartlist",
             joinColumns = @JoinColumn(name = "cartId", referencedColumnName = "cartId"),
             inverseJoinColumns = @JoinColumn(name = "itemId", referencedColumnName = "itemId"))
     private List<Item> itemList; // Creates a join table named "cartlist" which references "carts" and "items" tables; "cart_id" and "item_id" are respective foreign keys

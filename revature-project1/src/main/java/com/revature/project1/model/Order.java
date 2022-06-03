@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 @Entity
-@Table(name = "orders", schema = "revatureproject1")
+@Table(name = "orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -29,7 +29,7 @@ public class Order {
     private String zip;
 
     @ManyToMany
-    @JoinTable(name = "orderlist",  schema = "revatureproject1",
+    @JoinTable(name = "orderlist",
             joinColumns = @JoinColumn(name = "orderId", referencedColumnName = "orderId"),
             inverseJoinColumns = @JoinColumn(name = "itemId", referencedColumnName = "itemId"))
     private List<Item> itemList; // Creates a join table named "orderlist" which references "orders" and "items" tables; "order_id" and "item_id" are respective foreign keys

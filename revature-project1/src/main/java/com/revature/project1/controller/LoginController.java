@@ -42,8 +42,8 @@ public class LoginController {
             }
             else {
                 responseEntity = new ResponseEntity<String>
-                        ("Cannot add user id " + u.getUserId() + " as email is invalid or already exists", HttpStatus.NOT_ACCEPTABLE);
-                LOGGER.error("Cannot add user id " + u.getUserId() + " as email is invalid or already exists");
+                        ("Cannot add user as email is invalid or already exists", HttpStatus.NOT_ACCEPTABLE);
+                LOGGER.error("Cannot add user as email is invalid or already exists");
             }
         }
         return responseEntity;

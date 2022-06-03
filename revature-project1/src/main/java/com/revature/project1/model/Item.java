@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Component
 @Entity
-@Table(name = "items", schema = "revatureproject1")
+@Table(name = "items")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
