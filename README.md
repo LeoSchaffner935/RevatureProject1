@@ -33,7 +33,7 @@ Postman
 DBeaver
 AWS
 
-How To Run:
+**How To Run:**
 Assumption - AWS services are running. In Postman perform the following:
 
 Get All Items: GET ec2:8080/items
